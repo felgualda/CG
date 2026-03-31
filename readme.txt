@@ -1,6 +1,6 @@
 Instruções para executar o trabalho:
 
-- Abra a pasta Trabalho-CG pela sua IDE de preferência
+- Abra a pasta CG-2D pela sua IDE de preferência
 - Execute o arquivo run.py
 - Realize as ações disponibilizadas no terminal e veja suas transformações acontecendo em tempo real na janela aberta
 
