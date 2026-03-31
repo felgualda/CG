@@ -1,5 +1,5 @@
-from EDs.ponto import Ponto
-from EDs.objeto import Objeto
+from src.EDs.ponto import Ponto
+from src.EDs.objeto import Objeto
 
 def carregar_objeto(caminho):
     objetos = {}

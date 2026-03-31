@@ -1,7 +1,7 @@
-from EDs.ponto import Ponto
+from src.EDs.ponto import Ponto
 import numpy as np
 import math
-import util
+import src.util as util
 class Objeto():
     def __init__(self,nome,pontos = [],offset=[0,0],escala=[1,1],angulo=0,origem=Ponto([0,0,1]),pai=None,cor="black"):
         self.nome = nome

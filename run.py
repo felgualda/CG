@@ -1,12 +1,12 @@
-from EDs.ponto import Ponto
-from EDs.objeto import Objeto
-import scanner
+from src.EDs.ponto import Ponto
+from src.EDs.objeto import Objeto
+import src.scanner as scanner
 from tkinter import *
-from plot import Plot
-from inspector import Inspector
+from src.plot import Plot
+from src.inspector import Inspector
 import time
 
-gato = scanner.carregar_objeto("gato.txt")
+gato = scanner.carregar_objeto("data/gato.txt")
 print(f"Grupos carregados: {list(gato.keys())}")
 print(f"Grupos carregados: {list(gato.items())}")
 
