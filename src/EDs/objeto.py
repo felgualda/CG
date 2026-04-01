@@ -3,7 +3,7 @@ import numpy as np
 import math
 import src.util as util
 class Objeto():
-    def __init__(self,nome,pontos = [],offset=[0,0],escala=[1,1],angulo=0,origem=Ponto([0,0,1]),pai=None,cor="black"):
+    def __init__(self,nome,pontos = [],offset=[0,0],escala=[1,1],angulo=0,origem=Ponto([0,0,1]),pai=None,cor=""):
         self.nome = nome
         self.pontos_locais = pontos
         self.offset = offset
@@ -108,9 +108,14 @@ class Objeto():
     def set_angulo_rotacao(self,novo_angulo):
         self.angulo = novo_angulo
 
-
     def get_angulo_rotacao(self):
         return self.angulo
+    
+    def set_cor(self, cor):
+        self.cor = cor
+        
+    def get_cor(self):
+        return self.cor
 
     def add_ponto_logico(self,ponto):
         self.pontos_logicos.append(ponto)
@@ -144,6 +149,7 @@ class Objeto():
         if param == "Scl X": return self.get_escala()[0]
         if param == "Scl Y": return self.get_escala()[1]
         if param == "Scl Z": return 1
+        if param == "Cor": return self.get_cor()
 
         print(f"ERRO: Parâmetro {param} não encontrado na função objeto.get_param()")
         return 404
