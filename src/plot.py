@@ -43,11 +43,14 @@ class Plot(Frame):
         object.transform()
         transformado = object.get_pontos()
 
-        for ar, br in zip(transformado, transformado[1:]):
-            a = ar.get_global_pos()
-            b = br.get_global_pos()
-            self.draw_line(a[0],a[1],b[0],b[1])
-        self.draw_line(transformado[0].get_global_pos()[0],transformado[0].get_global_pos()[1],transformado[-1].get_global_pos()[0],transformado[-1].get_global_pos()[1])   
+        #for ar, br in zip(transformado, transformado[1:]):
+        #    a = ar.get_global_pos()
+        #    b = br.get_global_pos()
+        #    self.draw_line(a[0],a[1],b[0],b[1])
+        #self.draw_line(transformado[0].get_global_pos()[0],transformado[0].get_global_pos()[1],transformado[-1].get_global_pos()[0],transformado[-1].get_global_pos()[1])  
+         
+        tupla_transformado = self.points_to_polygon(transformado)
+        self.canvas.create_polygon(tupla_transformado,outline="black",fill=object.get_cor())
 
     def _normalize_coords(self, x, y):
         x = (self.grid_size * x) + (self.width % self.grid_size) + self.width/2
@@ -57,3 +60,11 @@ class Plot(Frame):
     def clear(self):
         self.canvas.delete("all")
         self.desenhar_grid()
+
+    def points_to_polygon(self,points):
+        r = []
+        for p in points:
+            pos_x,pos_y = self._normalize_coords(p.get_global_pos()[0],p.get_global_pos()[1])
+            r.append((pos_x,pos_y))
+
+        return r
