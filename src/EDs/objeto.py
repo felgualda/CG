@@ -92,6 +92,14 @@ class Objeto():
     
     def get_pontos(self):
         return self.pontos_locais
+    
+    def display_pontos_globais(self):
+        print(f"{self.nome}:")
+
+        i = 0
+        for p in self.pontos_locais:
+            print(f"v{i} = ( {p.get_global_pos()[0]+12.5} , {p.get_global_pos()[1]+2.5} , 0 )")
+            i += 1
 
     def set_offset(self,novo_offset):
         self.offset = novo_offset

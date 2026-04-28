@@ -7,8 +7,8 @@ from src.inspector import Inspector
 import time
 
 gato = scanner.carregar_objeto("data/gato.txt")
-print(f"Grupos carregados: {list(gato.keys())}")
-print(f"Grupos carregados: {list(gato.items())}")
+#print(f"Grupos carregados: {list(gato.keys())}")
+#print(f"Grupos carregados: {list(gato.items())}")
 
 root = Tk()
 mainframe = Frame(root)
@@ -24,12 +24,15 @@ for key in gato.keys():
     corpo = gato.get(key)
     objects.append(corpo)
 
-    print(f"{key}:{corpo}")
+    #print(f"{key}:{corpo}")
     objects_dict[key] = corpo
    
 
 for _,obj in objects_dict.items():
     net.draw_obj(obj)
+
+for o in objects:
+    o.display_pontos_globais()
 
 inspector = Inspector(mainframe,objects_dict,net)
 inspector.pack(side="right", fill="y", expand=True)

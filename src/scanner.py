@@ -21,9 +21,9 @@ def carregar_objeto(caminho):
                 novo_objeto = Objeto(nome_derivacao,[],[0,0],[1,1],0,Ponto([0,0,1]),objetos[pilha_derivacao[-1]] if pilha_derivacao else None)
                 objetos[nome_derivacao] = novo_objeto
 
-                print(linha)
-                print(f"qtde: {qtde} lastderivacao: {last_derivacao} e pilha: {pilha_derivacao}")
-                print()
+                #print(linha)
+                #print(f"qtde: {qtde} lastderivacao: {last_derivacao} e pilha: {pilha_derivacao}")
+                #print()
 
                 if qtde > last_derivacao:
                     pilha_derivacao.append(nome_derivacao)
@@ -36,7 +36,7 @@ def carregar_objeto(caminho):
                     for i in range(last_derivacao-qtde + 1):
                         pilha_derivacao.pop()
                     pilha_derivacao.append(nome_derivacao)
-                    print(pilha_derivacao)
+                    #print(pilha_derivacao)
                     novo_objeto.set_pai(objetos[pilha_derivacao[-2]])
                     last_derivacao = qtde
 
@@ -44,7 +44,7 @@ def carregar_objeto(caminho):
                 entrada = linha[1:]
                 try:
                     x, y = map(float, entrada.split(','))
-                    print(f"ponto {x,y} é ORIGEM para o objeto {pilha_derivacao[-1]}")
+                    #print(f"ponto {x,y} é ORIGEM para o objeto {pilha_derivacao[-1]}")
 
                     pai_logico = Ponto([x, y, 0.0])
 
@@ -56,7 +56,7 @@ def carregar_objeto(caminho):
             elif ',' in linha:
                 try:
                     x, y = map(float, linha.split(','))
-                    print(f"ponto {x,y} registrado para o objeto {pilha_derivacao[-1]}")
+                    #print(f"ponto {x,y} registrado para o objeto {pilha_derivacao[-1]}")
                     objetos[pilha_derivacao[-1]].add_ponto_local(Ponto([x, y, 0.0]))
                 except ValueError:
                     print(f"erro na linha: {linha}")
